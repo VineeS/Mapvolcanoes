@@ -1,0 +1,5 @@
+The libraries used here are pandas and folium
+1. first using the pandas the txt file is been read
+2. Then a base layer is created using the folium and a html file
+   using folium.Map ie map = folium.Map(location=[38.58,-99.09], zoom_start=6)
+3. 
