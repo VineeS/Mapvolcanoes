@@ -20,21 +20,25 @@ def color_produce(elevation):
     else:
         return 'black'
 
-fg = folium.FeatureGroup(name = "My Map")
+fg_v = folium.FeatureGroup(name = "Volcanoes") # feature group for Volcanoes
 
 # marker layer
 for lt,ln,el  in zip(lat, lon, elev):  
-    fg.add_child(folium.CircleMarker(location= [lt,ln],radius= 6, popup= str(el)+ "m", 
+    fg_v.add_child(folium.CircleMarker(location= [lt,ln],radius= 6, popup= str(el)+ "m", 
     fill_color= color_produce(el), color = "grey", fill_capicity = 0.7))
 
+fg_p = folium.FeatureGroup(name = "population") # feature group for population
+
 # polygon layer for population
-fg.add_child(folium.GeoJson(data = open("/Users/vinee/Documents/workspace/code python/UdemyCourse/Mapping/world.json",
+fg_p.add_child(folium.GeoJson(data = open("/Users/vinee/Documents/workspace/code python/UdemyCourse/Mapping/world.json",
 "r", encoding = 'utf-8-sig').read(), 
 style_function = lambda x: {"fillColor": "green" if x["properties"]["POP2005"] < 10000000 
 else "orange" if 10000000 <= x["properties"]["POP2005"] < 20000000 else "red"}))
 
 
-map.add_child(fg) 
+map.add_child(fg_v)
+map.add_child(fg_p) 
+
 map.add_child(folium.LayerControl()) # layer control for both the layer as they come under fg
 map.save("Map2.html")
 

@@ -1,5 +1,14 @@
 The libraries used here are pandas and folium
-1. first using the pandas the txt file is been read
+1. first using the pandas the txt file is been read 
 2. Then a base layer is created using the folium and a html file
    using folium.Map ie map = folium.Map(location=[38.58,-99.09], zoom_start=6)
-3. 
+3. Then pandas to read a particular column ie logitude , latitude and elevation 
+    for using the marker
+4. Marker layer used for a pop up or circular mark for the "Volcanoes.txt"
+5. polygon layer with blue boundiers for each coutries seperation
+6. polygon layer used for the mark the population of each country 
+7. now for the layer control that is we need to on and off the layers except for the base layer 
+    by using layerControl # map.add_child(folium.LayerControl()) This would control both the layers
+8. Adding Feature Grops for Volcanoes and population
+
+
